@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TCC.Models
 {
     [Table("endereco")]
-    public class Endereco
+    public class EnderecoModel
     {
         [Column("cd_endereco")]
         public int id { get; set; }

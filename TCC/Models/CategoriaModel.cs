@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TCC.Models
 {
-    [Table("cor")]
-    public class Cor
+    [Table("categoria")]
+    public class CategoriaModel
     {
-        [Column("cd_cor")]
+        [Column("cd_categoria")]
         public int id { get; set; }
-        [Column("ds_cor")]
-        public string cor { get; set; }
+        [Column("ds_categoria")]
+        public string categoria { get; set; }
     }
 }

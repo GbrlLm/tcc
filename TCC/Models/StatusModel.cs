@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TCC.Models
 {
     [Table("status")]
-    public class Status
+    public class StatusModel
     {
         [Column("cd_status")]
         public string id { get; set; }

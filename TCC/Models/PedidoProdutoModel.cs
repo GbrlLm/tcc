@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TCC.Models
 {
     [Table("pedido_produto")]
-    public class PedidoProduto
+    public class PedidoProdutoModel
     {
         [Column("cd_pedido")]
         public int id { get; set; }

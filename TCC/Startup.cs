@@ -24,6 +24,9 @@ namespace TCC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             string connectionString = Configuration.GetConnectionString("Default");
+            new ApplicationContext(connectionString);
+
+
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseMySQL(connectionString)
             );

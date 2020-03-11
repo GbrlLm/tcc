@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TCC.Models
 {
-    [Table("tamanho")]
-    public class Tamanho
+    [Table("cor")]
+    public class CorModel
     {
-        [Column("cd_tamanho")]
+        [Column("cd_cor")]
         public int id { get; set; }
-        [Column("ds_tamanho")]
-        public string tamanho { get; set; }
+        [Column("ds_cor")]
+        public string cor { get; set; }
     }
 }

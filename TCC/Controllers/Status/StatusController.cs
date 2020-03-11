@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TCC.Models;
 using TCC.Services.Status;
 
 namespace TCC.Controllers.Status
@@ -22,9 +23,9 @@ namespace TCC.Controllers.Status
 
         // GET: api/Status
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<StatusModel> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _statusServices.getTodosStatus();
         }
 
         // GET: api/Status/5

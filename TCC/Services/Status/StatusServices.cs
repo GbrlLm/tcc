@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TCC.Models;
 using TCC.Repositories.Status;
 
 namespace TCC.Services.Status
@@ -16,9 +17,9 @@ namespace TCC.Services.Status
         }
 
 
-        public void getTodosStatus()
+        public List<StatusModel> getTodosStatus()
         {
-            _statusRepository.getTodosStatus();
+            return _statusRepository.getAll();
         }
 
     }
