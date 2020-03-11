@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TCC</name>
+    </assembly>
+    <members>
+        <member name="M:TCC.Controllers.ValuesController.Get">
+            <summary>
+            Teste de Swagger.
+            </summary>
+            <returns>Todos os valores.</returns>
+        </member>
+        <member name="M:TCC.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            Teste de Swagger.
+            </summary>
+            <returns>Todos os valores.</returns>
+        </member>
+        <member name="M:TCC.Controllers.ValuesController.Post(System.String)">
+            <summary>
+            Teste de Swagger.
+            </summary>
+            <returns>Todos os valores.</returns>
+        </member>
+        <member name="M:TCC.Controllers.ValuesController.Put(System.Int32,System.String)">
+            <summary>
+            Teste de Swagger.
+            </summary>
+            <returns>Todos os valores.</returns>
+        </member>
+        <member name="M:TCC.Controllers.ValuesController.Delete(System.Int32)">
+            <summary>
+            Teste de Swagger.
+            </summary>
+            <returns>Todos os valores.</returns>
+        </member>
+    </members>
+</doc>

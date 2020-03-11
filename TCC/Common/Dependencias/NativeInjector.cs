@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TCC.Repositories.Status;
+using TCC.Services.Status;
 
 namespace TCC.Common.Dependencias
 {
@@ -16,13 +18,12 @@ namespace TCC.Common.Dependencias
 
         public static void RegisterRepositories(IServiceCollection services)
         {
-            //services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IStatusRepository, StatusRepository>();
         }
 
         public static void RegisterServices(IServiceCollection services)
         {
-            //services.AddScoped<IUsuarioService, UsuarioService>();
-            //services.AddScoped<IServiceResponse, ServiceResponse>();
+            services.AddScoped<IStatusServices, StatusServices>();
         }
     }
 }

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using TCC.Common.Context;
 using TCC.Common.Dependencias;
 
@@ -36,6 +29,14 @@ namespace TCC
             );
 
             NativeInjector.Registros(services);
+
+            var configuracoesSwagger = new Microsoft.OpenApi.Models.OpenApiInfo { Title = "TodoAPI", Version = "v1" };
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", configuracoesSwagger);
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +51,15 @@ namespace TCC
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            //Ativa o Swagger
+            app.UseSwagger();
+
+            // Ativa o Swagger UI
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoAPI V1");
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();
