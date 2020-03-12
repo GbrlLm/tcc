@@ -19,6 +19,7 @@ namespace TCC.Common.Dependencias
 
         public static void RegisterRepositories(IServiceCollection services)
         {
+            services.AddScoped<EntityContext>();
             services.AddScoped<ApplicationContext>();
             services.AddTransient<IStatusRepository, StatusRepository>();
         }

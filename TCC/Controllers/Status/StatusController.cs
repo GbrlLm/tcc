@@ -29,10 +29,10 @@ namespace TCC.Controllers.Status
         }
 
         // GET: api/Status/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("GetEntity")]
+        public List<StatusModel> GetEntity()
         {
-            return "value";
+            return _statusServices.getStatusEntity();
         }
 
         // POST: api/Status

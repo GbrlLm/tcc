@@ -9,5 +9,6 @@ namespace TCC.Repositories.Status
     public interface IStatusRepository
     {
         List<StatusModel> getAll();
+        List<StatusModel> getAllEntity();
     }
 }

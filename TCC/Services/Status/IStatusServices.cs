@@ -9,5 +9,6 @@ namespace TCC.Services.Status
     public interface IStatusServices
     {
         List<StatusModel> getTodosStatus();
+        List<StatusModel> getStatusEntity();
     }
 }

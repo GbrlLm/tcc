@@ -22,5 +22,10 @@ namespace TCC.Services.Status
             return _statusRepository.getAll();
         }
 
+        public List<StatusModel> getStatusEntity()
+        {
+            return _statusRepository.getAllEntity();
+        }
+
     }
 }

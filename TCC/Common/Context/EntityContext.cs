@@ -29,6 +29,19 @@ namespace TCC.Common.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<AvaliacaoModel>(entity => entity.HasKey("cd_avaliacao"));
+            modelBuilder.Entity<UsuarioModel>(entity => entity.HasKey("cd_usuario"));
+            modelBuilder.Entity<CategoriaModel>(entity => entity.HasKey("cd_categoria"));
+            modelBuilder.Entity<CorModel>(entity => entity.HasKey("cd_cor"));
+            modelBuilder.Entity<EnderecoModel>(entity => entity.HasKey("cd_endereco"));
+            modelBuilder.Entity<PedidoModel>(entity => entity.HasKey("cd_pedido"));
+            modelBuilder.Entity<ProdutoModel>(entity => entity.HasKey("cd_produto"));
+            modelBuilder.Entity<ProdutoVendaModel>(entity => entity.HasKey("cd_produto_venda"));
+            modelBuilder.Entity<StatusModel>(entity => entity.HasKey("cd_status"));
+            modelBuilder.Entity<TamanhoModel>(entity => entity.HasKey("cd_tamanho"));
+            modelBuilder.Entity<PedidoProdutoModel>(entity => entity.HasKey("cd_pedido", "cd_produto_venda"));
+
         }
     }
 }

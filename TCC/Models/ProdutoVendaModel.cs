@@ -8,7 +8,7 @@ namespace TCC.Models
 {
     public class ProdutoVendaModel
     {
-        public int cd_produto_produto { get; set; }
+        public int cd_produto_venda { get; set; }
         public int cd_produto { get; set; }
         public int cd_tamanho { get; set; }
         public int cd_cor { get; set; }
