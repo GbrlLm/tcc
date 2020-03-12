@@ -10,8 +10,8 @@ namespace TCC.Models
     public class StatusModel
     {
         [Column("cd_status")]
-        public string id { get; set; }
+        public int cd_status { get; set; }
         [Column("ds_status")]
-        public string status { get; set; }
+        public string ds_status { get; set; }
     }
 }

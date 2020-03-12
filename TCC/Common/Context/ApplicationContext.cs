@@ -10,40 +10,17 @@ using TCC.Models;
 
 namespace TCC.Common.Context
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext
     {
         public readonly string _connectionString;
 
-        public ApplicationContext(DbContextOptions options) : base(options)
+        public ApplicationContext(IConfiguration configuration)
         {
-        }
-
-        public ApplicationContext(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
-
-        public DbSet<UsuarioModel> Usuarios { get; set; }
-        public DbSet<AvaliacaoModel> Avaliacoes { get; set; }
-        public DbSet<CategoriaModel> Categorias { get; set; }
-        public DbSet<CorModel> Cores { get; set; }
-        public DbSet<EnderecoModel> Enderecos { get; set; }
-        public DbSet<PedidoModel> Pedidos { get; set; }
-        public DbSet<PedidoProdutoModel> PedidosProdutos { get; set; }
-        public DbSet<ProdutoModel> Produtos { get; set; }
-        public DbSet<ProdutoVendaModel> ProdutosVendas { get; set; }
-        public DbSet<StatusModel> Status { get; set; }
-        public DbSet<TamanhoModel> Tamanhos { get; set; }
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+            _connectionString = configuration.GetConnectionString("Default");
         }
 
         public List<T> ConectarBanco<T>(string query, Object parametros)
         {
-            var aux = _connectionString;
             using (MySqlConnection connect = new MySqlConnection(_connectionString))
             {
                 try

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TCC.Common.Context;
 using TCC.Repositories.Status;
 using TCC.Services.Status;
 
@@ -18,6 +19,7 @@ namespace TCC.Common.Dependencias
 
         public static void RegisterRepositories(IServiceCollection services)
         {
+            services.AddScoped<ApplicationContext>();
             services.AddTransient<IStatusRepository, StatusRepository>();
         }
 
