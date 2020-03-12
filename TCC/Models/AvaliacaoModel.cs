@@ -6,18 +6,12 @@ using System.Threading.Tasks;
 
 namespace TCC.Models
 {
-    [Table("avaliacao")]
     public class AvaliacaoModel
     {
-        [Column("cd_avaliacao")]
-        public int id { get; set; }
-        [Column("cd_usuario")]
-        public int usuarioId { get; set; }
-        [Column("cd_produto")]
-        public int produtoId { get; set; }
-        [Column("ds_avaliacao")]
-        public string avalicao { get; set; }
-        [Column("dt_avaliacao")]
-        public DateTime data { get; set; }
+        public int cd_avaliacao { get; set; }
+        public int cd_usuario { get; set; }
+        public int cd_produto { get; set; }
+        public string ds_avaliacao { get; set; }
+        public DateTime dt_avaliacao { get; set; }
     }
 }

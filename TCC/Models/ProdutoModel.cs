@@ -6,20 +6,13 @@ using System.Threading.Tasks;
 
 namespace TCC.Models
 {
-    [Table("produto")]
     public class ProdutoModel
     {
-        [Column("cd_produto")]
-        public int id { get; set; }
-        [Column("cd_categoria")]
-        public int categoriaId { get; set; }
-        [Column("nm_produto")]
-        public string produto { get; set; }
-        [Column("ds_foto")]
-        public string foto { get; set; }
-        [Column("ds_produto")]
-        public string descricao { get; set; }
-        [Column("vl_produto")]
-        public double valor { get; set; }
+        public int cd_produto { get; set; }
+        public int cd_categoria { get; set; }
+        public string nm_produto { get; set; }
+        public string ds_foto { get; set; }
+        public string ds_produto { get; set; }
+        public double vl_produto { get; set; }
     }
 }

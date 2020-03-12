@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace TCC.Models
 {
-    [Table("pedido_produto")]
     public class PedidoProdutoModel
     {
-        [Column("cd_pedido")]
-        public int id { get; set; }
-        [Column("cd_produto_venda")]
-        public int produtoVendaId { get; set; }
-        [Column("qt_produto")]
-        public int quantidade { get; set; }
+        public int cd_pedido { get; set; }
+        public int cd_produto_venda { get; set; }
+        public int qt_produto { get; set; }
     }
 }

@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace TCC.Models
 {
-    [Table("pedido")]
     public class PedidoModel
     {
-        [Column("cd_pedido")]
-        public int id { get; set; }
-        [Column("cd_usuario")]
-        public int usuarioId { get; set; }
-        [Column("cd_status")]
-        public int statusId { get; set; }
-        [Column("cd_endereco")]
-        public int enderecoInt { get; set; }
+        public int cd_pedido { get; set; }
+        public int cd_usuario { get; set; }
+        public int cd_status { get; set; }
+        public int cd_endereco { get; set; }
     }
 }

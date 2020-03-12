@@ -6,22 +6,14 @@ using System.Threading.Tasks;
 
 namespace TCC.Models
 {
-    [Table("endereco")]
     public class EnderecoModel
     {
-        [Column("cd_endereco")]
-        public int id { get; set; }
-        [Column("cd_usuario")]
-        public int usuarioId { get; set; }
-        [Column("ds_endereco")]
-        public string endereco { get; set; }
-        [Column("ds_complemento")]
-        public string complemento { get; set; }
-        [Column("nm_bairro")]
-        public string bairro { get; set; }
-        [Column("nm_cidade")]
-        public string cidade { get; set; }
-        [Column("nm_estado")]
-        public string estado { get; set; }
+        public int cd_endereco { get; set; }
+        public int cd_usuario { get; set; }
+        public string ds_endereco { get; set; }
+        public string ds_complemento { get; set; }
+        public string nm_bairro { get; set; }
+        public string nm_cidade { get; set; }
+        public string nm_estado { get; set; }
     }
 }

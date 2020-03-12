@@ -6,24 +6,15 @@ using System.Threading.Tasks;
 
 namespace TCC.Models
 {
-    [Table("usuario")]
     public class UsuarioModel
     {
-        [Column("cd_usuario")]
-        public int id { get; set; }
-        [Column("cd_senha")]
-        public string senha { get; set; }
-        [Column("nm_email")]
-        public string email { get; set; }
-        [Column("cd_cpf")]
-        public string cpf { get; set; }
-        [Column("nm_usuario")]
-        public string nome { get; set; }
-        [Column("nm_sobrenome")]
-        public string sobrenome { get; set; }
-        [Column("dt_nascimento")]
-        public DateTime nascimento { get; set; }
-        [Column("ic_sexo")]
-        public string sexo { get; set; }
+        public int cd_usuario { get; set; }
+        public string cd_senha { get; set; }
+        public string nm_email { get; set; }
+        public string cd_cpf { get; set; }
+        public string nm_usuario { get; set; }
+        public string nm_sobrenome { get; set; }
+        public DateTime dt_nascimento { get; set; }
+        public string ic_sexo { get; set; }
     }
 }
