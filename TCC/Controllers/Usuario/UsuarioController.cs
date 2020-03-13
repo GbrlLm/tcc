@@ -26,21 +26,10 @@ namespace TCC.Controllers.Usuario
         {
         }
 
-        [HttpPost("Login")]
-        public bool Post([FromBody] string[] credentials)
+        [HttpPost("Login/{token}")]
+        public bool Post(string token, [FromForm] string user, [FromForm] string pass)
         {
-            string user, pass;
-            try
-            {
-                user = credentials[0];
-                pass = credentials[1];
-            }
-            catch (Exception e) 
-            { 
-                return false; 
-            }
-
-            return _usuarioServices.login(user,pass);
+            return _usuarioServices.login(token,user,pass);
         }
 
         [HttpPut("{id}")]

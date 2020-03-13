@@ -16,13 +16,12 @@ namespace TCC.Services.Usuario
             _usuarioRepository = usuarioRepository;
         }
 
-        public bool login(string user, string pass)
+        public bool login(string token, string user, string pass)
         {
-            if (_usuarioRepository.login(user, pass))
+            if (_usuarioRepository.verifyToken(token))
             {
-                //TODO
+                return _usuarioRepository.login(token, user, pass);
             }
-
 
             return false;
         }

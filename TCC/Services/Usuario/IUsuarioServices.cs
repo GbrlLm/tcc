@@ -8,6 +8,6 @@ namespace TCC.Services.Usuario
 {
     public interface IUsuarioServices
     {
-        bool login(string user,string pass);
+        bool login(string token, string user,string pass);
     }
 }

@@ -22,7 +22,7 @@ namespace TCC.Repositories.Auth
         {
             string query = "insert into auth(cd_sessionId) values(@token)";
 
-            _applicationContext.ConectarBanco<StatusModel>(query.ToString(), new { token });
+            _applicationContext.ConectarBanco<int>(query.ToString(), new { token });
         }
     }
 }

@@ -8,5 +8,7 @@ namespace TCC.Repositories.Usuario
 {
     public interface IUsuarioRepository
     {
+        bool verifyToken(string token);
+        bool login(string token, string user, string pass);
     }
 }
