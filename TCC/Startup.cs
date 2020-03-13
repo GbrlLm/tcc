@@ -21,6 +21,8 @@ namespace TCC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             string connectionString = Configuration.GetConnectionString("Default");
@@ -61,6 +63,10 @@ namespace TCC
             {
                 opt.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoAPI V1");
             });
+
+            app.UseCors(
+                options => options.WithOrigins("*").AllowAnyMethod()
+            );
 
             app.UseHttpsRedirection();
             app.UseMvc();

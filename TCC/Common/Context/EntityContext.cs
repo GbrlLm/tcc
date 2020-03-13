@@ -24,6 +24,7 @@ namespace TCC.Common.Context
         public DbSet<ProdutoVendaModel> ProdutosVendas { get; set; }
         public DbSet<StatusModel> Status { get; set; }
         public DbSet<TamanhoModel> Tamanhos { get; set; }
+        public DbSet<AuthModel> Auth { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,7 +42,7 @@ namespace TCC.Common.Context
             modelBuilder.Entity<StatusModel>(entity => entity.HasKey("cd_status"));
             modelBuilder.Entity<TamanhoModel>(entity => entity.HasKey("cd_tamanho"));
             modelBuilder.Entity<PedidoProdutoModel>(entity => entity.HasKey("cd_pedido", "cd_produto_venda"));
-
+            modelBuilder.Entity<AuthModel>(entity => entity.HasKey("cd_auth"));
         }
     }
 }
