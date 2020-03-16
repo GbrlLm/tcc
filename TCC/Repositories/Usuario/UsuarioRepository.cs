@@ -24,19 +24,22 @@ namespace TCC.Repositories.Usuario
             return _applicationContext.ConectarBanco<AuthModel>(query.ToString(), new { token }).Any();
         }
 
-        public bool login(string token, string user, string pass)
+        public List<UsuarioModel> getUsuario(string user, string pass)
         {
-            string query = "select * from usuario where (nm_usuario = @user or nm_email = @user) and cd_senha = @pass";
-            List<UsuarioModel> usuario = _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { user, pass });
+            string query = "select * from usuario where nm_email = @user and cd_senha = @pass";
+            return _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { user, pass });
+        }
 
-            if (usuario.Any())
-            {
-                query = "update auth set cd_usuario = @cd_usuario where cd_sessionId = @token";
-                _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { @cd_usuario = usuario.First().cd_usuario, token });
-                return true;
-            }
+        public void login(string token, int cd_usuario)
+        {
+            string query = "update auth set cd_usuario = @cd_usuario where cd_sessionId = @token";
+            _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { cd_usuario, token });
+        }
 
-            return false;
+        public void logout(string token)
+        {
+            string query = "delete from auth where cd_sessionId = @token";
+            _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { token });
         }
     }
 }

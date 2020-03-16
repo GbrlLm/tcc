@@ -9,5 +9,6 @@ namespace TCC.Services.Usuario
     public interface IUsuarioServices
     {
         bool login(string token, string user,string pass);
+        void logout(string token);
     }
 }

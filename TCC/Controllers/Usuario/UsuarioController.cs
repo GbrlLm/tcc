@@ -32,6 +32,13 @@ namespace TCC.Controllers.Usuario
             return _usuarioServices.login(token,user,pass);
         }
 
+        [HttpPost("Logout/{token}")]
+        public IActionResult Post(string token)
+        {
+            _usuarioServices.logout(token);
+            return Ok();
+        }
+
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {

@@ -21,10 +21,10 @@ namespace TCC.Controllers.Auth
         }
 
 
-        [HttpGet("GetSessionId")]
-        public string Get()
+        [HttpGet("GenerateSessionId")]
+        public IActionResult Get()
         {
-            return _authServices.generateSessionId();
+            return Ok(new { token = _authServices.generateSessionId() });
         }
 
         [HttpPost]

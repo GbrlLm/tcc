@@ -20,10 +20,20 @@ namespace TCC.Services.Usuario
         {
             if (_usuarioRepository.verifyToken(token))
             {
-                return _usuarioRepository.login(token, user, pass);
+                List<UsuarioModel> usuario = _usuarioRepository.getUsuario(user, pass);
+                if (usuario.Any())
+                {
+                    _usuarioRepository.login(token, usuario.First().cd_usuario);
+                    return true;
+                }
             }
 
             return false;
+        }
+
+        public void logout(string token)
+        {
+            _usuarioRepository.logout(token);
         }
     }
 }
