@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TCC.Models;
+using TCC.Models.temp;
 using TCC.Repositories.Usuario;
 
 namespace TCC.Services.Usuario
@@ -27,13 +28,22 @@ namespace TCC.Services.Usuario
                     return true;
                 }
             }
-
             return false;
         }
 
         public void logout(string token)
         {
             _usuarioRepository.logout(token);
+        }
+
+        public bool signUp(SignUp v)
+        {
+            if (!_usuarioRepository.isEmailOrCpfInUse(v.email, v.cpf))
+            {
+                _usuarioRepository.createUser(v.pass, v.email, v.cpf, v.nome, v.sobrenome, v.nasc, v.sexo);
+                return true;
+            }
+            return false;
         }
     }
 }

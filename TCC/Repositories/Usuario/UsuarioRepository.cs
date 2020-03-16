@@ -33,13 +33,27 @@ namespace TCC.Repositories.Usuario
         public void login(string token, int cd_usuario)
         {
             string query = "update auth set cd_usuario = @cd_usuario where cd_sessionId = @token";
-            _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { cd_usuario, token });
+            _applicationContext.ConectarBanco<int>(query.ToString(), new { cd_usuario, token });
         }
 
         public void logout(string token)
         {
             string query = "delete from auth where cd_sessionId = @token";
-            _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { token });
+            _applicationContext.ConectarBanco<int>(query.ToString(), new { token });
+        }
+
+        public void createUser(string pass, string email, string cpf, string nome, string sobrenome, DateTime nasc, string sexo)
+        {
+            string query = "insert into usuario" +
+                "(cd_senha, nm_email, cd_cpf, nm_usuario, nm_sobrenome, dt_nascimento, ic_sexo) values" +
+                "(@pass, @email, @cpf, @nome, @sobrenome, @nasc, @sexo);";
+            _applicationContext.ConectarBanco<int>(query.ToString(), new { pass, email, cpf, nome, sobrenome, nasc, sexo });
+        }
+
+        public bool isEmailOrCpfInUse(string email, string cpf)
+        {
+            string query = "select * from usuario where cd_cpf = @cpf or nm_email = @email";
+            return _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { email, cpf }).Any();
         }
     }
 }

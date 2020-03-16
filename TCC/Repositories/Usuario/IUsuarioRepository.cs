@@ -12,5 +12,7 @@ namespace TCC.Repositories.Usuario
         List<UsuarioModel> getUsuario(string user, string pass);
         void login(string token, int cd_usuario);
         void logout(string token);
+        void createUser(string pass, string email, string cpf, string nome, string sobrenome, DateTime nasc, string sexo);
+        bool isEmailOrCpfInUse(string email, string cpf);
     }
 }

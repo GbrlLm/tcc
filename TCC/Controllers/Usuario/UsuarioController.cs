@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TCC.Models;
+using TCC.Models.temp;
 using TCC.Services.Usuario;
 
 namespace TCC.Controllers.Usuario
@@ -27,16 +28,22 @@ namespace TCC.Controllers.Usuario
         }
 
         [HttpPost("Login/{token}")]
-        public bool Post(string token, [FromForm] string user, [FromForm] string pass)
+        public bool Login(string token, [FromBody] Login values)
         {
-            return _usuarioServices.login(token,user,pass);
+            return _usuarioServices.login(token, values.email, values.pass);
         }
 
         [HttpPost("Logout/{token}")]
-        public IActionResult Post(string token)
+        public IActionResult Logout(string token)
         {
             _usuarioServices.logout(token);
             return Ok();
+        }
+
+        [HttpPost("SignUp")]
+        public IActionResult SignUp([FromBody] SignUp values)
+        {
+            return Ok(_usuarioServices.signUp(values));
         }
 
         [HttpPut("{id}")]
