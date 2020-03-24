@@ -24,10 +24,10 @@ namespace TCC.Repositories.Usuario
             return _applicationContext.ConectarBanco<AuthModel>(query.ToString(), new { token }).Any();
         }
 
-        public List<UsuarioModel> getUsuario(string user, string pass)
+        public List<UsuarioModel> getUsuarioByEmail(string email)
         {
-            string query = "select * from usuario where nm_email = @user and cd_senha = @pass";
-            return _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { user, pass });
+            string query = "select * from usuario where nm_email = @email";
+            return _applicationContext.ConectarBanco<UsuarioModel>(query.ToString(), new { email });
         }
 
         public void login(string token, int cd_usuario)

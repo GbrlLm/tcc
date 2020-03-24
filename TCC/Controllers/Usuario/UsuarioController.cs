@@ -27,10 +27,10 @@ namespace TCC.Controllers.Usuario
         {
         }
 
-        [HttpPost("Login/{token}")]
-        public bool Login(string token, [FromBody] Login values)
+        [HttpPost("Login")]
+        public bool Login([FromBody] Login values)
         {
-            return _usuarioServices.login(token, values.email, values.pass);
+            return _usuarioServices.login(values.token, values.email, values.pass);
         }
 
         [HttpPost("Logout/{token}")]

@@ -7,6 +7,7 @@ namespace TCC.Models.temp
 {
     public class Login
     {
+        public string token { get; set; }
         public string email { get; set; }
         public string pass { get; set; }
     }

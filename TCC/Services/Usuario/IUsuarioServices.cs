@@ -12,5 +12,7 @@ namespace TCC.Services.Usuario
         bool login(string token, string user,string pass);
         void logout(string token);
         bool signUp(SignUp v);
+        string HashPassword(string pass, byte[] salt);
+        byte[] GetSaltFromHashedPassword(string pass);
     }
 }
